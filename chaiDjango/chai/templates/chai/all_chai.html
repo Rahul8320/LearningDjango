@@ -8,6 +8,20 @@ All Chai Page
   <main>
     <h1 class="text-center text-3xl font-semibold text-orange-700">All types of chai availble here</h1>
 
+    <div class="grid grid-cols-3 gap-4 m-5">
+      {% for chai in allChais %}
+      <div class="bg-slate-400 rounded-lg shadow-md p-3">
+        <img class="rounded h-72 mx-auto" src="{{chai.image.url}}" alt="chai image">
+        <h2 class="text-stone-700 text-2xl font-bold text-center my-1">{{chai.name}}</h2>
+        <a href="#">
+          <button class="w-full bg-orange-600 p-2 rounded-md shadow-md text-xl font-medium hover:bg-orange-700 hover:text-gray-200">
+            {{chai.chai_type}} - {{chai.id}}
+          </button>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
     <div class="my-10 max-w-3xl mx-auto">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nobis! Optio libero quas blanditiis odio perspiciatis ex nam dolores illo, nisi facere minus odit ea? Vero voluptas error impedit similique.
     </div>
