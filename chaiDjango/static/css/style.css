@@ -1,0 +1,11 @@
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-item {
+  margin-right: 15px;
+  list-style: none;
+  color: whitesmoke;
+}

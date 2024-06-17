@@ -1,0 +1,29 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Django App {% endblock %}</title>
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body class="max-w-6xl mx-auto dark:bg-slate-800 dark:text-white">
+    <nav class="my-3">
+      <ul class="navbar">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/chai/">All Chai</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="bg-gray-700 my-5 p-3 text-center">
+      <p class="text-gray-400 font-mono">Made by Rahul &copy; 2024</p>
+    </footer>
+  </body>
+</html>
