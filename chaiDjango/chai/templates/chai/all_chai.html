@@ -13,7 +13,7 @@ All Chai Page
       <div class="bg-slate-400 rounded-lg shadow-md p-3">
         <img class="rounded h-72 mx-auto" src="{{chai.image.url}}" alt="chai image">
         <h2 class="text-stone-700 text-2xl font-bold text-center my-1">{{chai.name}}</h2>
-        <a href="#">
+        <a href="{% url 'chai_details' chai.id %}">
           <button class="w-full bg-orange-600 p-2 rounded-md shadow-md text-xl font-medium hover:bg-orange-700 hover:text-gray-200">
             {{chai.chai_type}} - {{chai.id}}
           </button>

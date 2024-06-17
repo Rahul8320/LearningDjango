@@ -816,6 +816,11 @@ select {
   margin-bottom: 0.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -840,6 +845,10 @@ select {
   height: 18rem;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -862,6 +871,10 @@ select {
 
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
 }
 
 .grid-cols-3 {
