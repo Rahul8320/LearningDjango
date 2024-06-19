@@ -9,3 +9,7 @@
   list-style: none;
   color: whitesmoke;
 }
+
+label {
+  color: antiquewhite;
+}

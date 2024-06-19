@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Chai Store Page
+{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <form method="POST" class="text-stone-800">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="bg-teal-300 font-medium p-2 rounded-lg">Search Store</button>
+    </form>
+</div>
+
+{% if stores %}
+    <div class="my-5">
+        <h2 class="text-3xl text-teal-400 font-semibold text-center my-2">Stores available</h2>
+        <ul class="text-center">
+            {% for store in stores %}
+                <li> {{store.name}} - {{store.location}} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p class="text-center">No store found!</p>
+{% endif %}
+{% endblock %}
