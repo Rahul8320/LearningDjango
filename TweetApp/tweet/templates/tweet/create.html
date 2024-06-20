@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Update Tweet
+    {% else %}
+        Create Tweet
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4 text-primary-emphasis">
+    {% if form.instance.pk %}
+        Update Tweet
+    {% else %}
+        Create Tweet
+    {% endif %}
+</h1>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">Submit</button>
+    </form>
+
+    <a href="{% url "home" %}">Back to list</a>
+</div>
+
+{% endblock %}

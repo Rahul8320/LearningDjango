@@ -6,4 +6,31 @@ Tweet
 
 {% block content %}
 <h1 class="text-center mt-4 text-primary-emphasis">Welcome to Tweet App</h1>
+
+<div class="container">
+    <a href="{% url "create_tweet" %}" class="btn btn-primary mb-3">Create Tweet</a>
+
+    <div class="row gap-3">
+        {% for tweet in tweets %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 d-flex align-items-center">
+                    <img src="{{tweet.photo.url}}" class="img-fluid object-fit-cover m-1 rounded-3" style="max-height: 200px;" alt="photo url">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{tweet.user.username}}</h5>
+                    <p class="card-text"> {{tweet.text}} </p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated at {{tweet.updated_at}} </small></p>
+                    <div class="d-flex justify-content-end bottom-0">
+                        <a href="{% url "update_tweet" tweet.id %}" class="btn btn-outline-success mx-3">Update</a>
+                        <a href="{% url "delete_tweet" tweet.id %}" class="btn btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
