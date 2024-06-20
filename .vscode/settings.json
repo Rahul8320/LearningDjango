@@ -1,8 +1,15 @@
 {
     "cSpell.words": [
         "chais",
+        "createsuperuser",
         "ELACHI",
-        "MASALA"
+        "makemigrations",
+        "MASALA",
+        "runserver",
+        "startapp",
+        "startproject",
+        "STATICFILES",
+        "urlpatterns"
     ],
     "cSpell.ignoreWords": [
         "ecukpn",
