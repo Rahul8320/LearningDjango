@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center text-primary-emphasis mt-3">Register to Tweet App</h2>
+
+<form method="post" class="my-3">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<h6>
+    Already have an account, 
+    <a href="{% url "login" %}">Login Here</a>
+</h6>
+
+{% endblock %}
