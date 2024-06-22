@@ -6,11 +6,9 @@ Tweet
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center mt-4 text-primary-emphasis">Welcome to Tweet App</h1>
+<h1 class="text-center my-4 text-primary-emphasis">Latest Tweets </h1>
 
 <div class="container">
-    <a href="{% url "create_tweet" %}" class="btn btn-primary mb-3">Create Tweet</a>
-
     <div class="row gap-3">
         {% for tweet in tweets %}
         <div class="card mb-3" style="max-width: 540px;">
@@ -28,9 +26,9 @@ Tweet
                     <p class="card-text"> {{tweet.text}} </p>
                     <p class="card-text"><small class="text-body-secondary">Last updated at {{tweet.updated_at|timezone:"Asia/Kolkata"|date:"DATETIME_FORMAT"}} </small></p>
                     {% if tweet.user == user %}
-                        <div class="d-flex justify-content-end bottom-0">
-                            <a href="{% url "update_tweet" tweet.id %}" class="btn btn-outline-success mx-3">Update</a>
-                            <a href="{% url "delete_tweet" tweet.id %}" class="btn btn-outline-danger">Delete</a>
+                        <div class="d-flex justify-content-end">
+                            <a href="{% url "update_tweet" tweet.id %}" class="btn btn-outline-success mx-3"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{% url "delete_tweet" tweet.id %}" class="btn btn-outline-danger"><i class="bi bi-trash3"></i></a>
                         </div>
                     {% endif %}
                 </div>

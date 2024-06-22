@@ -9,6 +9,24 @@
 {% endblock %}
 
 {% block content %}
+{% comment %} Display errors {% endcomment %}
+{% if form.errors %}
+<div class="alert alert-danger">
+    <strong>Error!</strong> Please correct the following errors:
+    <ul>
+        {% for field, errors in form.errors.items %}
+        <li>{{ field|title }}:
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
 <h1 class="text-center mt-4 text-primary-emphasis">
     {% if form.instance.pk %}
         Update Tweet
@@ -20,8 +38,18 @@
 <div class="container">
     <form method="post" enctype="multipart/form-data" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-warning" type="submit">Submit</button>
+        
+        <div class="form-group my-2">
+            {{ form.text.label_tag }}
+            {{ form.text }}
+        </div>
+
+        <div class="form-group my-2">
+            {{ form.photo.label_tag }}
+            {{ form.photo }}
+        </div>
+
+        <button class="btn btn-warning my-3" type="submit" {% if form.errors %}disabled{% endif %}>Submit</button>
     </form>
 
     <a href="{% url "home" %}">Back to list</a>
