@@ -26,6 +26,12 @@ def search_tweets(request):
     return render(request, 'tweet/search.html', {"context": context})
 
 @login_required
+def my_tweets(request):
+    tweets = Tweet.objects.filter(user=request.user)
+
+    return render(request, 'user/my_tweets.html', {"tweets": tweets})
+
+@login_required
 def create_tweet(request):
     if request.method == "POST":
         form = TweetForm(request.POST, request.FILES)

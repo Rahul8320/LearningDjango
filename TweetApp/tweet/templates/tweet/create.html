@@ -52,7 +52,11 @@
         <button class="btn btn-warning my-3" type="submit" {% if form.errors %}disabled{% endif %}>Submit</button>
     </form>
 
-    <a href="{% url "home" %}">Back to list</a>
+    {% if request.META.HTTP_REFERER == request.build_absolute_uri %}
+        <a href="{% url 'my_tweets' %}" class="btn btn-secondary">Back to Tweets</a>
+    {% else %}
+        <a href="{% url "home" %}" class="btn btn-secondary">Back to Home</a>
+    {% endif %}
 </div>
 
 {% endblock %}
