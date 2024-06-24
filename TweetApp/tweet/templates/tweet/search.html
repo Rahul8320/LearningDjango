@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% load tz %}
+
+{% block title %}
+Tweet
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center my-4 text-primary-emphasis"> Search result for: {{context.query}} </h1>
+
+<div class="container">
+    <div class="row gap-3">
+        {% for tweet in context.tweets %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 d-flex align-items-center">
+                    {% if tweet.photo %}
+                        <img src="{{tweet.photo.url}}" class="img-fluid object-fit-cover m-1 rounded-3" style="max-height: 200px;" alt="photo url">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid object-fit-cover m-1 rounded-3" style="max-height: 200px;" alt="photo url">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{tweet.user.username}}</h5>
+                    <p class="card-text"> {{tweet.text}} </p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated at {{tweet.updated_at|timezone:"Asia/Kolkata"|date:"DATETIME_FORMAT"}} </small></p>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

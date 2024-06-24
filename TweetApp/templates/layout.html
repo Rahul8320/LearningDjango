@@ -32,11 +32,9 @@
           </li>
         {% endif %}
       </ul>
-      <form class="d-flex" role="search">
-        <div class="input-group align-items-center px-2 rounded-2 border border-2 border-secondary-subtle mx-2" id="searchBox">
-          <span><i class="bi bi-search"></i></span>
-          <input class="form-control border-0 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-        </div>
+      <form class="d-flex" role="search" method="GET" action="{% url "search_tweets" %}">
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="query" required>
+        <button class="btn btn-outline-success" type="submit" hidden>Search</button>
       </form>
       {% if user.is_authenticated %}
       <div class="nav-item dropdown mx-3">

@@ -10,6 +10,21 @@ def home(request):
     tweets = Tweet.objects.all().order_by("-created_at")
     return render(request, 'tweet/home.html', {"tweets": tweets})
 
+def search_tweets(request):
+    query = request.GET.get("query")
+
+    if query:
+        tweets = Tweet.objects.filter(text__icontains=query)
+    else:
+        tweets = Tweet.objects.all()
+    
+    context = {
+        'query': query,
+        'tweets': tweets
+    }
+
+    return render(request, 'tweet/search.html', {"context": context})
+
 @login_required
 def create_tweet(request):
     if request.method == "POST":
